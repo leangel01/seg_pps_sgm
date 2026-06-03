@@ -105,7 +105,18 @@ function App() {
 
                 <RefineKbar />
                 <UnsavedChangesNotifier />
-                <DocumentTitleHandler />
+                {/* Se pone un titulo custom a la pagina de acuerdo a la ruta */}
+                <DocumentTitleHandler 
+                  handler={({ resource}) => {
+                    // Obtenemos el label del recurso actual
+                    const resourseName = resource?.meta?.label ?? resource?.name ?? "";
+                    // definimos el sufijo
+                    const suffix = "  | DGPCMC 2";
+
+                    // Retornamos el titulo completo
+                    return `${resourseName}${suffix}`;
+                  }}
+                /> 
               </Refine>
               <DevtoolsPanel />
             </DevtoolsProvider>
