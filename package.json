@@ -39,7 +39,9 @@
     "dev": "refine dev",
     "build": "tsc && refine build",
     "start": "refine start",
-    "refine": "refine"
+    "refine": "refine",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": {
     "production": [
