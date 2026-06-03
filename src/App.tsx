@@ -16,7 +16,7 @@ import routerProvider, {
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
 import { App as AntdApp } from "antd";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import { HashRouter, Outlet, Route, Routes } from "react-router";
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import {
@@ -35,7 +35,7 @@ import { dataProvider } from "./providers/data";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
@@ -123,7 +123,7 @@ function App() {
           </AntdApp>
         </ColorModeContextProvider>
       </RefineKbarProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
