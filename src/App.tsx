@@ -19,6 +19,12 @@ import { App as AntdApp } from "antd";
 import { HashRouter, Outlet, Route, Routes } from "react-router";
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
+{/*
+  SECCION DE IMPORTACIONES DE LAS PAGINAS
+*/}
+
+import { BoardView } from "./pages/dashboard";
+
 import {
   BlogPostCreate,
   BlogPostEdit,
@@ -31,6 +37,15 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
+
+// -----------------------------
+
+{/*
+  SECCION DE IMPORTACIONES DE ICONOS  
+*/}
+import { DashboardOutlined } from "@ant-design/icons";
+// -----------------------------
+
 import { dataProvider } from "./providers/data";
 
 function App() {
@@ -46,6 +61,14 @@ function App() {
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
                 resources={[
+                  {
+                    name : "dashboard",
+                    list : "/dashboard",
+                    meta: {
+                      label: "Dashboard",
+                      icon: <DashboardOutlined />,
+                    }
+                  },
                   {
                     name: "blog_posts",
                     list: "/blog-posts",
@@ -85,8 +108,10 @@ function App() {
                   >
                     <Route
                       index
-                      element={<NavigateToResource resource="blog_posts" />}
+                      element={<NavigateToResource resource="dashboard" />}
                     />
+                    <Route path="dashboard" element={<BoardView />} />
+
                     <Route path="/blog-posts">
                       <Route index element={<BlogPostList />} />
                       <Route path="create" element={<BlogPostCreate />} />
