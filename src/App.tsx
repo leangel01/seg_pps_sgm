@@ -37,6 +37,7 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
+import { Title } from "./components/Layout/Title";
 
 // -----------------------------
 
@@ -93,14 +94,17 @@ function App() {
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
+                  disableTelemetry: true,
                 }}
               >
                 <Routes>
                   <Route
                     element={
                       <ThemedLayout
+                        initialSiderCollapsed = {true}
                         Header={() => <Header sticky />}
                         Sider={(props) => <ThemedSider {...props} fixed />}
+                        Title = { ({ collapsed }) => <Title collapsed={collapsed} />}
                       >
                         <Outlet />
                       </ThemedLayout>
