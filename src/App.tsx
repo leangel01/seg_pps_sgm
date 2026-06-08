@@ -52,7 +52,6 @@ import { dataProvider } from "./providers/data";
 function App() {
   return (
     <HashRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <AntdApp>
