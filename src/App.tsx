@@ -44,7 +44,7 @@ import { Title } from "./components/Layout/Title";
 {/*
   SECCION DE IMPORTACIONES DE ICONOS  
 */}
-import { DashboardOutlined } from "@ant-design/icons";
+import { PieChartOutlined} from "@ant-design/icons";
 // -----------------------------
 
 import { dataProvider } from "./providers/data";
@@ -66,7 +66,7 @@ function App() {
                     list : "/dashboard",
                     meta: {
                       label: "Dashboard",
-                      icon: <DashboardOutlined />,
+                      icon: <PieChartOutlined />,
                     }
                   },
                   {
