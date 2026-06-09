@@ -37,13 +37,14 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
+import { Title } from "./components/Layout/Title";
 
 // -----------------------------
 
 {/*
   SECCION DE IMPORTACIONES DE ICONOS  
 */}
-import { DashboardOutlined } from "@ant-design/icons";
+import { PieChartOutlined} from "@ant-design/icons";
 // -----------------------------
 
 import { dataProvider } from "./providers/data";
@@ -51,7 +52,6 @@ import { dataProvider } from "./providers/data";
 function App() {
   return (
     <HashRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <AntdApp>
@@ -66,7 +66,7 @@ function App() {
                     list : "/dashboard",
                     meta: {
                       label: "Dashboard",
-                      icon: <DashboardOutlined />,
+                      icon: <PieChartOutlined />,
                     }
                   },
                   {
@@ -93,14 +93,17 @@ function App() {
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
+                  disableTelemetry: true,
                 }}
               >
                 <Routes>
                   <Route
                     element={
                       <ThemedLayout
+                        initialSiderCollapsed = {true}
                         Header={() => <Header sticky />}
                         Sider={(props) => <ThemedSider {...props} fixed />}
+                        Title = { ({ collapsed }) => <Title collapsed={collapsed} />}
                       >
                         <Outlet />
                       </ThemedLayout>

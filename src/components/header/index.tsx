@@ -34,22 +34,35 @@ export const Header: React.FC<RefineThemedLayoutHeaderProps> = ({
     alignItems: "center",
     padding: "0px 24px",
     height: "64px",
+    transition: "all 0.3s",
   };
 
   if (sticky) {
     headerStyles.position = "sticky";
     headerStyles.top = 0;
-    headerStyles.zIndex = 1;
+    headerStyles.zIndex = 4;
   }
 
   return (
     <AntdLayout.Header style={headerStyles}>
+      <div style={{ 
+          fontSize: "20px",
+          fontWeight: 700,
+          
+          flex: 1,
+          maxWidth: "60%",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        }} >
+        Segimiento del ejercicio del gasto del SGM
+      </div> 
       <Space>
         <Switch
           checkedChildren="🌛"
           unCheckedChildren="🔆"
           onChange={() => setMode(mode === "light" ? "dark" : "light")}
-          defaultChecked={mode === "dark"}
+          defaultChecked={mode === "light"}
         />
         <Space style={{ marginLeft: "8px" }} size="middle">
           {user?.name && <Text strong>{user.name}</Text>}
