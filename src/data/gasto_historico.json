@@ -1,0 +1,59 @@
+{
+    "10 ECONOMÍA": {
+        "SERVICIO GEOLÓGICO MEXICANO": {
+            "2018": {
+                "APROBADO": 774.562583,
+                "DEVENGADO": 1089.052626,
+                "MODIFICADO": 1096.38595,
+                "PAGADO": 1089.052626
+            },
+            "2019": {
+                "APROBADO": 893.587709,
+                "DEVENGADO": 734.971282,
+                "MODIFICADO": 960.053478,
+                "PAGADO": 734.971282
+            },
+            "2020": {
+                "APROBADO": 973.573654,
+                "DEVENGADO": 674.7536,
+                "MODIFICADO": 847.851165,
+                "PAGADO": 674.7536
+            },
+            "2021": {
+                "APROBADO": 1035.099712,
+                "DEVENGADO": 878.603637,
+                "MODIFICADO": 1144.439201,
+                "PAGADO": 878.603637
+            },
+            "2022": {
+                "APROBADO": 1035.538217,
+                "DEVENGADO": 894.079136,
+                "MODIFICADO": 1246.15057,
+                "PAGADO": 894.079136
+            },
+            "2023": {
+                "APROBADO": 1220.094078,
+                "DEVENGADO": 980.899115,
+                "MODIFICADO": 1235.37461,
+                "PAGADO": 980.899115
+            },
+            "2024": {
+                "APROBADO": 1349.511892,
+                "DEVENGADO": 1531.059303,
+                "MODIFICADO": 2074.554781,
+                "PAGADO": 1531.059303
+            },
+            "2025": {
+                "APROBADO": 1240.863582,
+                "DEVENGADO": 839.403098,
+                "MODIFICADO": 1240.769242,
+                "PAGADO": 839.403098
+            },
+            "2026": {
+                "APROBADO": 230.390178,
+                "MODIFICADO": 230.390178,
+                "PAGADO": 56.126508
+            }
+        }
+    }
+}
