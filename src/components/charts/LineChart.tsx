@@ -99,18 +99,18 @@ export const LineChartComponent: React.FC<{ data: LineChartData[] }> = ({ data})
     // ordenamos los datos cronológicamente para el calculo de la variacion
     const sortedData = [...data].sort((a,b) => a.CICLO - b.CICLO);
 
-    const formatYAxis = (value: number) => `$${(value).toLocaleString()}M`;
+    const formatYAxis = (value: number) => `${(value).toLocaleString('en-US')} `;
 
     return(
         <div style={{ width: "100%", height: 360, marginTop: "10px" }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart 
           data={sortedData} 
-          margin={{ top: 40, right: 30, left: 20, bottom: 10 }}
+          margin={{ top: 10, right: 30, left: 20, bottom: 20 }}
         >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} /> 
           <XAxis dataKey="CICLO" />
-          <YAxis tickFormatter={formatYAxis} width={90} axisLine={false} />
+          <YAxis  tickFormatter={formatYAxis} width={50} axisLine={false} /> 
           <Tooltip content={<CustomTooltip />} />
           <Legend verticalAlign="top" height={36} />
 
@@ -128,8 +128,8 @@ export const LineChartComponent: React.FC<{ data: LineChartData[] }> = ({ data})
             type="monotone"
             dataKey="MODIFICADO"
             stroke="#52c41a"
-            strokeWidth={4}
-            dot={{ r: 6, fill: "#52c41a" }}
+            strokeWidth={3}
+            dot={{ r: 4, fill: "#52c41a" }}
           >
             {/* Etiquetas de variación interanual */}
             <LabelList 
@@ -142,11 +142,25 @@ export const LineChartComponent: React.FC<{ data: LineChartData[] }> = ({ data})
             type="monotone"
             dataKey="PAGADO"
             stroke="#f5222d"
-            strokeWidth={2}
-            strokeDasharray="5 5"
+            strokeWidth={3}
+            //strokeDasharray="5 5"
           />
         </LineChart>
       </ResponsiveContainer>
+      {/*NOTA DEL GTRAFICO*/}
+      <p
+        style={{
+            marginTop: -33,
+            fontSize: 12,
+            fontStyle: "bold",
+        }}
+      >
+        Notas:
+        <br />
+       1. El monto pagado del ejercicion 2026 corresponde al avance del PEF al cierre del primer trimestre.
+       <br />
+       2. Las variaciones corresponden al comparativo del monto modificado.
+      </p>
     </div>
     );
 

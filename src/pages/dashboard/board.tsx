@@ -76,7 +76,7 @@ const currentLineChartData = useMemo(
             <Row>
                 <Col span={24}>
                     <Card
-                    title ={"Ejercicio histórico del gasto"}
+                    title ={"Ejercicio histórico del gasto (millones de pesos)."}
                     style = {{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
                     > 
                     <LineChartComponent data={currentLineChartData} />
