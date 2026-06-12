@@ -1,0 +1,329 @@
+{
+    "10 ECONOMÍA": {
+        "SERVICIO GEOLÓGICO MEXICANO": {
+            "2018": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 391.521664,
+                    "Devengado": 689.422983,
+                    "Modificado": 699.822289,
+                    "Pagado": 689.422983
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 358.309873,
+                    "Devengado": 362.539579,
+                    "Modificado": 368.891179,
+                    "Pagado": 362.539579
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 16.581414,
+                    "Devengado": 18.212107,
+                    "Modificado": 18.377085,
+                    "Pagado": 18.212107
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 9.739632,
+                    "Devengado": 10.806059,
+                    "Modificado": 10.885397,
+                    "Pagado": 10.806059
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -1.59,
+                    "Devengado": 8.071898,
+                    "Modificado": -1.59,
+                    "Pagado": 8.071898
+                }
+            ],
+            "2019": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 869.672325,
+                    "Devengado": 423.207643,
+                    "Modificado": 569.667407,
+                    "Pagado": 423.207643
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 0.0,
+                    "Devengado": 302.63571,
+                    "Modificado": 365.165122,
+                    "Pagado": 302.63571
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 17.323848,
+                    "Devengado": 16.33939,
+                    "Modificado": 18.390463,
+                    "Pagado": 16.33939
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 9.581536,
+                    "Devengado": 9.619589,
+                    "Modificado": 9.820486,
+                    "Pagado": 9.619589
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.99,
+                    "Devengado": -16.83105,
+                    "Modificado": -2.99,
+                    "Pagado": -16.83105
+                }
+            ],
+            "2020": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 484.740838,
+                    "Devengado": 343.238088,
+                    "Modificado": 359.730053,
+                    "Pagado": 343.238088
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 465.089968,
+                    "Devengado": 315.735407,
+                    "Modificado": 465.089968,
+                    "Pagado": 315.735407
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 15.893967,
+                    "Devengado": 14.060946,
+                    "Modificado": 15.06336,
+                    "Pagado": 14.060946
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 10.003881,
+                    "Devengado": 9.5648,
+                    "Modificado": 10.122784,
+                    "Pagado": 9.5648
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.155,
+                    "Devengado": -7.845641,
+                    "Modificado": -2.155,
+                    "Pagado": -7.845641
+                }
+            ],
+            "2021": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 463.061293,
+                    "Devengado": 445.119927,
+                    "Modificado": 582.37909,
+                    "Pagado": 445.119927
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 547.416554,
+                    "Devengado": 399.624467,
+                    "Modificado": 533.893202,
+                    "Pagado": 399.624467
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 15.722019,
+                    "Devengado": 15.571734,
+                    "Modificado": 16.34264,
+                    "Pagado": 15.571734
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 11.269846,
+                    "Devengado": 11.619161,
+                    "Modificado": 14.194269,
+                    "Pagado": 11.619161
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.37,
+                    "Devengado": 6.668348,
+                    "Modificado": -2.37,
+                    "Pagado": 6.668348
+                }
+            ],
+            "2022": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 948.359643,
+                    "Devengado": 453.142438,
+                    "Modificado": 689.510358,
+                    "Pagado": 453.142438
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 63.35768,
+                    "Devengado": 399.890071,
+                    "Modificado": 532.867722,
+                    "Pagado": 399.890071
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 15.95719,
+                    "Devengado": 14.354922,
+                    "Modificado": 14.650908,
+                    "Pagado": 14.354922
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 10.363704,
+                    "Devengado": 11.32299,
+                    "Modificado": 11.621582,
+                    "Pagado": 11.32299
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.5,
+                    "Devengado": 15.368715,
+                    "Modificado": -2.5,
+                    "Pagado": 15.368715
+                }
+            ],
+            "2023": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 751.7933,
+                    "Devengado": 528.493354,
+                    "Modificado": 710.028082,
+                    "Pagado": 528.493354
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 441.344136,
+                    "Devengado": 420.51663,
+                    "Modificado": 500.008006,
+                    "Pagado": 420.51663
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 16.609941,
+                    "Devengado": 15.590414,
+                    "Modificado": 15.991053,
+                    "Pagado": 15.590414
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 12.526701,
+                    "Devengado": 11.55022,
+                    "Modificado": 11.527469,
+                    "Pagado": 11.55022
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.18,
+                    "Devengado": 4.748497,
+                    "Modificado": -2.18,
+                    "Pagado": 4.748497
+                }
+            ],
+            "2024": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 1299.767843,
+                    "Devengado": 1169.087398,
+                    "Modificado": 1416.311504,
+                    "Pagado": 1169.087398
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 20.297233,
+                    "Devengado": 352.039329,
+                    "Modificado": 634.121047,
+                    "Pagado": 352.039329
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 18.405862,
+                    "Devengado": 14.41362,
+                    "Modificado": 14.935728,
+                    "Pagado": 14.41362
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 13.300954,
+                    "Devengado": 10.775128,
+                    "Modificado": 11.446502,
+                    "Pagado": 10.775128
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.26,
+                    "Devengado": -15.256172,
+                    "Modificado": -2.26,
+                    "Pagado": -15.256172
+                }
+            ],
+            "2025": [
+                {
+                    "DENOMINACION": "[ E007 ] Producción de información geológica del territorio nacional",
+                    "Aprobado": 923.132732,
+                    "Devengado": 464.248123,
+                    "Modificado": 799.887317,
+                    "Pagado": 464.248123
+                },
+                {
+                    "DENOMINACION": "[ K024 ] Otros proyectos de infraestructura gubernamental",
+                    "Aprobado": 0.0,
+                    "Devengado": 7.985407,
+                    "Modificado": 8.853578,
+                    "Pagado": 7.985407
+                },
+                {
+                    "DENOMINACION": "[ K028 ] Estudios de preinversión",
+                    "Aprobado": 290.606749,
+                    "Devengado": 332.208764,
+                    "Modificado": 407.302991,
+                    "Pagado": 332.208764
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo administrativo",
+                    "Aprobado": 17.682448,
+                    "Devengado": 15.055898,
+                    "Modificado": 15.432481,
+                    "Pagado": 15.055898
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 11.721653,
+                    "Devengado": 11.120786,
+                    "Modificado": 11.572875,
+                    "Pagado": 11.120786
+                },
+                {
+                    "DENOMINACION": "[ W001 ] Operaciones ajenas",
+                    "Aprobado": -2.28,
+                    "Devengado": 8.78412,
+                    "Modificado": -2.28,
+                    "Pagado": 8.78412
+                }
+            ],
+            "2026": [
+                {
+                    "DENOMINACION": "[ F020 ] Promoción, regulación e información geológica para el desarrollo de la actividad minera ",
+                    "Aprobado": 211.973538,
+                    "Modificado": 211.973538,
+                    "Pagado": 50.974288
+                },
+                {
+                    "DENOMINACION": "[ M001 ] Actividades de apoyo Administrativo",
+                    "Aprobado": 11.820563,
+                    "Modificado": 11.820563,
+                    "Pagado": 3.666571
+                },
+                {
+                    "DENOMINACION": "[ O001 ] Actividades de apoyo a la función pública y buen gobierno",
+                    "Aprobado": 6.596077,
+                    "Modificado": 6.596077,
+                    "Pagado": 1.485649
+                }
+            ]
+        }
+    }
+}
