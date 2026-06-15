@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sgm-news-2026-001",
+    "title": "SGM concluye la integración del Estado Analítico de Egresos para el cierre del ejercicio",
+    "content": "# Reporte de Gestión Presupuestaria\n\nEl **Servicio Geológico Mexicano** ha finalizado la conciliación de los recursos asignados a los proyectos de infraestructura y cartografía minera.\n\n### Puntos Clave del Reporte:\n* Cumplimiento estricto de las metas del **Capítulo 1000** (Servicios Personales).\n* Consolidación de transferencias destinadas a las Oficinas Regionales.\n* Transparencia total en el marco de la integración para la Cuenta Pública.\n\n> Se solicita al área de sistemas verificar que en el *Visor Presupuestario* las tablas de este periodo no presenten desfases ni superposiciones con el header al aplicar los filtros dinámicos.",
+    "status": "published",
+    "category": {
+      "id": "cat-adm-fin"
+    },
+    "createdAt": "2026-05-20T10:15:00.000Z",
+    "updatedAt": "2026-05-22T14:30:00.000Z"
+  },
+  {
+    "id": "sgm-news-2024-015",
+    "title": "Actualización del Sistema de Control Interno (COSO) y Matriz de Indicadores para Resultados",
+    "content": "## Boletín Técnico de Control Interno\n\nCon el objetivo de robustecer la gobernanza y mitigar riesgos institucionales, el SGM ha actualizado los lineamientos de su **Matriz de Indicadores para Resultados (MIR)**.\n\nSe incorporan nuevas métricas de control y modelos estadísticos no lineales para supervisar la eficiencia del gasto en las campañas de exploración de campo de los últimos años.",
+    "status": "published",
+    "category": {
+      "id": "cat-normativa"
+    },
+    "createdAt": "2024-11-12T09:00:00.000Z"
+  },
+  {
+    "id": "sgm-news-2021-042",
+    "title": "Avances en la digitalización de la Cartografía Geológico-Minera a escala 1:250,000",
+    "content": "# Proyecto Estratégico de Digitalización (Periodo 2018-2024)\n\nEl SGM presenta el avance físico-financiero de la actualización de las cartas geológicas nacionales. Este esfuerzo coordinado permite centralizar capas de datos geoespaciales críticos para la evaluación del potencial minero del país.\n\n### Infraestructura Tecnológica:\nLos conjuntos de datos vectoriales están listos para ser consumidos por los tableros internos de visualización mediante servicios web geográficos (WMS/WFS).",
+    "status": "published",
+    "category": {
+      "id": "cat-cartografia"
+    },
+    "createdAt": "2021-07-05T16:45:00.000Z",
+    "updatedAt": "2021-07-06T11:20:00.000Z"
+  },
+  {
+    "id": "sgm-news-2018-005",
+    "title": "Alineación del programa operativo anual a las disposiciones de la LFPRH",
+    "content": "## Comunicado Normativo\n\nAl inicio del presente ciclo institucional, se instruye a todas las direcciones del SGM a adecuar sus metas físicas y financieras a los criterios de racionalidad y disciplina fiscal estipulados en la **Ley Federal de Presupuesto y Responsabilidad Hacendaria (LFPRH)**.\n\nTodo desfase en los Slicers de seguimiento deberá reportarse de forma oportuna a la Dirección de Administración y Finanzas.",
+    "status": "published",
+    "category": {
+      "id": "cat-normativa"
+    },
+    "createdAt": "2018-03-14T08:30:00.000Z"
+  }
+]

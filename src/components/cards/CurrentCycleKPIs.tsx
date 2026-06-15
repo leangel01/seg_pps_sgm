@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Row, Col, Typography } from "antd";
-import { DollarOutlined, CheckCircleOutlined, PercentageOutlined, ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
+import { DollarOutlined, CheckCircleOutlined, ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import { KPICard } from "./KPICard";
 
 const { Text } = Typography;
@@ -72,8 +72,29 @@ export const CurrentCycleKPIs: React.FC<CurrentCycleKPIsProps> = ({
     </Text>
   );
 
+  const porcentajePagado = Math.min(100, Math.max(0, kpiData.porcentaje));
+  const radius = 32;
+  const circumference = 2 * Math.PI * radius;
+  const dash = (porcentajePagado / 100) * circumference;
+  const dashOffset = circumference - dash;
+  const angle = (porcentajePagado / 100) * 360 - 90;
+  const svgSize = 72;
+  const glowRadius = (svgSize / 100) * radius;
+  const glowX = svgSize / 2 + glowRadius * Math.cos((angle * Math.PI) / 180);
+  const glowY = svgSize / 2 + glowRadius * Math.sin((angle * Math.PI) / 180);
+
   return (
-    <Row gutter={[16, 16]}>
+    <>
+      <style>
+        {`
+          @keyframes progressGlow {
+            0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
+            45% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
+          }
+        `}
+      </style>
+      <Row gutter={[16, 16]}>
       <Col xs={24} sm={12} md={8}>
         <KPICard
           title="Monto Modificado"
@@ -99,7 +120,56 @@ export const CurrentCycleKPIs: React.FC<CurrentCycleKPIsProps> = ({
           prefix="$"
           suffix="M"
           precision={2}
-          extraValue={<Text type="secondary">{kpiData.porcentaje.toFixed(2)}%</Text>}
+          extraValue={
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+              <div style={{ position: "relative", width: 72, height: 72 }}>
+                <svg width="72" height="72" viewBox="0 0 100 100" aria-label="Porcentaje pagado respecto al modificado">
+                  <circle cx="50" cy="50" r={radius} fill="none" stroke="rgba(155, 34, 71, 0.14)" strokeWidth="10" />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r={radius}
+                    fill="none"
+                    stroke="#9b2247"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                    strokeDasharray={circumference}
+                    strokeDashoffset={dashOffset}
+                    transform="rotate(-90 50 50)"
+                    style={{ filter: "drop-shadow(0 0 3px rgba(155, 34, 71, 0.35))" }}
+                  />
+                </svg>
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "grid",
+                    placeItems: "center",
+                    pointerEvents: "none",
+                  }}
+                >
+                  <Text strong style={{ color: "#9b2247", fontSize: 11 }}>
+                    {porcentajePagado.toFixed(0)}%
+                  </Text>
+                </div>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: `${glowX}px`,
+                    top: `${glowY}px`,
+                    width: 10,
+                    height: 10,
+                    borderRadius: "50%",
+                    background: "radial-gradient(circle, rgba(155, 34, 71, 0.95) 0%, rgba(155, 34, 71, 0.72) 45%, rgba(155, 34, 71, 0.18) 75%)",
+                    boxShadow: "0 0 10px rgba(155, 34, 71, 0.45)",
+                    transform: "translate(-50%, -50%)",
+                    animation: "progressGlow 1.4s ease-in-out infinite",
+                  }}
+                />
+              </div>
+              
+            </div>
+          }
         />
       </Col>
       <Col xs={24} sm={12} md={8}>
@@ -112,6 +182,7 @@ export const CurrentCycleKPIs: React.FC<CurrentCycleKPIsProps> = ({
           precision={2}
         />
       </Col>
-    </Row>
+      </Row>
+    </>
   );
 };
