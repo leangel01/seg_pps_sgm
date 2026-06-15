@@ -8,6 +8,7 @@ import gastoProgramas from "../../data/gasto_programas.json";
 
 import { LineChartComponent } from "../../components/charts/LineChart";
 import { BarchartComponent } from "../../components/charts/Barchart";
+import { CurrentCycleKPIs } from "../../components/cards";
 
 // ---------------------------------------------------------------
 {/*DEFINICION DE LAS INTERFACES*/}
@@ -50,7 +51,7 @@ export const BoardView: React.FC = () => {
   const [selectedRamo, setSelectedRamo] = useState<string>(initialRamo);
   const [selectedUR, setSelectedUR] = useState<string>(initialUR);
   const [selectedYear, setSelectedYear] = useState<string>("");
-  const [showHistorical, setShowHistorical] = useState<boolean>(false);
+  const [showHistorical, setShowHistorical] = useState<boolean>(true);
   const [selectedProgram, setSelectedProgram] = useState<string>("");
 
 
@@ -121,15 +122,25 @@ export const BoardView: React.FC = () => {
       },
     ];
   }, [selectedRamo, selectedUR, selectedYear, selectedProgram, showHistorical]);
+
+  const currentCiclo = useMemo(() => {
+    const ciclos = Object.keys(gHistoricoDatos[selectedRamo]?.[selectedUR] ?? {})
+      .map(Number)
+      .sort((a, b) => b - a);
+    return ciclos[0]?.toString() || "";
+  }, [selectedRamo, selectedUR]);
   
     return (
         <div style={{padding: "24px", minHeight: "100vh"}}>
             <Space direction="vertical" size="middle" style={{ width: "100%" }}>
             <Affix offsetTop={64}>
-                <Card size="small" style={{borderRadius: "8px", borderTop: "4px solid #9b2247", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"}}>
-                    <Text strong>Espacio reservado para KPIs del ciclo más actual</Text>
-                    <br />
-                    <Text type="secondary">Aquí se colocarán las tarjetas informativas cuando se integren los indicadores.</Text>
+                <Card style={{borderRadius: "8px", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"}}>
+                    <CurrentCycleKPIs
+                      ramo={selectedRamo}
+                      ur={selectedUR}
+                      ciclo={currentCiclo}
+                      gHistoricoDatos={gHistoricoDatos}
+                    />
                 </Card>
             </Affix>
             <Row>

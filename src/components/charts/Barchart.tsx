@@ -71,7 +71,7 @@ export const BarchartComponent: React.FC<BarchartProps> = ({ data, title }) => {
           <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.25} />
           <XAxis dataKey="label" tickLine={false} axisLine={false} />
           <YAxis tickFormatter={formatYAxis} width={60} axisLine={false} tickLine={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.12)' }} content={<CustomTooltip />} />
           <Legend verticalAlign="top" height={32} />
           <Bar dataKey="aprobado" name="Aprobado" fill="#1677ff" radius={[4, 4, 0, 0]} />
           <Bar dataKey="modificado" name="Modificado" fill="#52c41a" radius={[4, 4, 0, 0]} />
