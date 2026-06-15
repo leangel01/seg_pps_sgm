@@ -47,7 +47,7 @@ import { Title } from "./components/Layout/Title";
 import { PieChartOutlined} from "@ant-design/icons";
 // -----------------------------
 
-import { dataProvider } from "./providers/data";
+import { localDataProvider } from "./providers/localDataProvider";
 
 function App() {
   return (
@@ -57,7 +57,7 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider}
+                dataProvider={localDataProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
                 resources={[
