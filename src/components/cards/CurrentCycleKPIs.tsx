@@ -38,6 +38,7 @@ export const CurrentCycleKPIs: React.FC<CurrentCycleKPIsProps> = ({
         pagado: 0,
         porcentaje: 0,
         variacion: 0,
+        availability: 0,
         direction: "up" as "up" | "down",
       };
     }
