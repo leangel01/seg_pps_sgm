@@ -3,12 +3,12 @@ import { Card, Select, Row, Col, Typography, Space, Affix, Checkbox } from "antd
 
 const { Title, Text } = Typography;
 
-import gastoHistorico from "../../data/gasto_historico.json";
-import gastoProgramas from "../../data/gasto_programas.json";
-
 import { LineChartComponent } from "../../components/charts/LineChart";
 import { BarchartComponent } from "../../components/charts/Barchart";
 import { CurrentCycleKPIs } from "../../components/cards";
+import { useCallback } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../providers/firebaseClient";
 
 // ---------------------------------------------------------------
 {/*DEFINICION DE LAS INTERFACES*/}
@@ -41,15 +41,15 @@ interface GastoProgramaData {
   };
 }
 
-const gHistoricoDatos = gastoHistorico as GastoHistorico;
-const gProgramasDatos = gastoProgramas as GastoProgramaData;
+const emptyHistorico: GastoHistorico = {};
+const emptyProgramas: GastoProgramaData = {};
 
 export const BoardView: React.FC = () => {
-  const initialRamo = Object.keys(gHistoricoDatos)[0];
-  const initialUR = Object.keys(gHistoricoDatos[initialRamo] ?? {})[0];
+  const [gHistoricoDatos, setGHistoricoDatos] = useState<GastoHistorico>(emptyHistorico);
+  const [gProgramasDatos, setGProgramasDatos] = useState<GastoProgramaData>(emptyProgramas);
 
-  const [selectedRamo, setSelectedRamo] = useState<string>(initialRamo);
-  const [selectedUR, setSelectedUR] = useState<string>(initialUR);
+  const [selectedRamo, setSelectedRamo] = useState<string>("");
+  const [selectedUR, setSelectedUR] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [showHistorical, setShowHistorical] = useState<boolean>(true);
   const [selectedProgram, setSelectedProgram] = useState<string>("");
@@ -61,7 +61,7 @@ export const BoardView: React.FC = () => {
       .map(Number)
       .sort((a, b) => a - b);
     return years.map((year) => String(year));
-  }, [selectedRamo, selectedUR]);
+  }, [selectedRamo, selectedUR, gProgramasDatos]);
 
   useEffect(() => {
     if (!selectedYear && availableYears.length) {
@@ -72,7 +72,7 @@ export const BoardView: React.FC = () => {
   const programOptions = useMemo(() => {
     const items = gProgramasDatos[selectedRamo]?.[selectedUR]?.[selectedYear] ?? [];
     return Array.from(new Set(items.map((item) => item.DENOMINACION))).sort((a, b) => a.localeCompare(b));
-  }, [selectedRamo, selectedUR, selectedYear]);
+  }, [selectedRamo, selectedUR, selectedYear, gProgramasDatos]);
 
   useEffect(() => {
     if (!selectedProgram || !programOptions.includes(selectedProgram)) {
@@ -80,17 +80,16 @@ export const BoardView: React.FC = () => {
     }
   }, [programOptions, selectedProgram]);
 
-  const currentLineChartData = useMemo(
-    () =>
-      Object.entries(gHistoricoDatos[selectedRamo]?.[selectedUR] ?? {}).map(([ciclo, values]) => ({
-        CICLO: Number(ciclo),
-        APROBADO: values.APROBADO ?? 0,
-        MODIFICADO: values.MODIFICADO ?? 0,
-        DEVENGADO: values.DEVENGADO ?? 0,
-        PAGADO: values.PAGADO ?? 0,
-      })),
-    [selectedRamo, selectedUR]
-  );
+  const currentLineChartData = useMemo(() => {
+    if (!selectedRamo || !selectedUR) return [];
+    return Object.entries(gHistoricoDatos[selectedRamo]?.[selectedUR] ?? {}).map(([ciclo, values]) => ({
+      CICLO: Number(ciclo),
+      APROBADO: values.APROBADO ?? 0,
+      MODIFICADO: values.MODIFICADO ?? 0,
+      DEVENGADO: values.DEVENGADO ?? 0,
+      PAGADO: values.PAGADO ?? 0,
+    }));
+  }, [selectedRamo, selectedUR, gHistoricoDatos]);
 
   const currentBarChartData = useMemo(() => {
     const source = gProgramasDatos[selectedRamo]?.[selectedUR] ?? {};
@@ -121,14 +120,92 @@ export const BoardView: React.FC = () => {
         devengado: item?.Devengado ?? 0,
       },
     ];
-  }, [selectedRamo, selectedUR, selectedYear, selectedProgram, showHistorical]);
+  }, [selectedRamo, selectedUR, selectedYear, selectedProgram, showHistorical, gProgramasDatos]);
 
   const currentCiclo = useMemo(() => {
+    if (!selectedRamo || !selectedUR) return "";
     const ciclos = Object.keys(gHistoricoDatos[selectedRamo]?.[selectedUR] ?? {})
       .map(Number)
       .sort((a, b) => b - a);
     return ciclos[0]?.toString() || "";
-  }, [selectedRamo, selectedUR]);
+  }, [selectedRamo, selectedUR, gHistoricoDatos]);
+
+  // Fetch collections from Firestore and transform into the nested structures
+  const fetchGastoHistorico = useCallback(async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "gasto_historico"));
+      const result: GastoHistorico = {};
+      snapshot.forEach((doc) => {
+        const data: any = doc.data();
+        const ramo = (data.sector || data.SECTOR || "") as string;
+        const ur = (data.agency || data.AGENCY || data.agencia || data.AGENCIA || "") as string;
+        const year = String(data.year ?? data.YEAR ?? data.year?.toString() ?? "");
+
+        if (!ramo || !ur || !year) return;
+
+        if (!result[ramo]) result[ramo] = {};
+        if (!result[ramo][ur]) result[ramo][ur] = {};
+
+        result[ramo][ur][year] = {
+          APROBADO: Number(data.APROBADO ?? data.Aprobado ?? 0),
+          MODIFICADO: Number(data.MODIFICADO ?? data.Modificado ?? 0),
+          DEVENGADO: Number(data.DEVENGADO ?? data.Devengado ?? 0),
+          PAGADO: Number(data.PAGADO ?? data.Pagado ?? 0),
+        };
+      });
+
+      setGHistoricoDatos(result);
+      // set default selections if not set
+      const ramas = Object.keys(result);
+      if (ramas.length) {
+        const r = ramas[0];
+        const urs = Object.keys(result[r] ?? {});
+        const u = urs[0] ?? "";
+        setSelectedRamo((prev) => prev || r);
+        setSelectedUR((prev) => prev || u);
+      }
+    } catch (error) {
+      console.error("Error fetching gasto_historico:", error);
+    }
+  }, []);
+
+  const fetchGastoProgramas = useCallback(async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "gasto_programas"));
+      const result: GastoProgramaData = {};
+      snapshot.forEach((doc) => {
+        const data: any = doc.data();
+        const ramo = (data.sector || data.SECTOR || "") as string;
+        const ur = (data.agency || data.AGENCY || data.agencia || data.AGENCIA || "") as string;
+        const year = String(data.year ?? data.YEAR ?? data.year?.toString() ?? "");
+
+        if (!ramo || !ur || !year) return;
+
+        if (!result[ramo]) result[ramo] = {};
+        if (!result[ramo][ur]) result[ramo][ur] = {};
+        if (!result[ramo][ur][year]) result[ramo][ur][year] = [];
+
+        const item: GastoProgramaItem = {
+          DENOMINACION: data.DENOMINACION ?? data.denominacion ?? data.programa ?? "",
+          Aprobado: Number(data.APROBADO ?? data.Aprobado ?? data.aprobado ?? 0),
+          Devengado: Number(data.DEVENGADO ?? data.Devengado ?? data.devengado ?? 0),
+          Modificado: Number(data.MODIFICADO ?? data.Modificado ?? data.modificado ?? 0),
+          Pagado: Number(data.PAGADO ?? data.Pagado ?? data.pagado ?? 0),
+        };
+
+        result[ramo][ur][year].push(item);
+      });
+
+      setGProgramasDatos(result);
+    } catch (error) {
+      console.error("Error fetching gasto_programas:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchGastoHistorico();
+    fetchGastoProgramas();
+  }, [fetchGastoHistorico, fetchGastoProgramas]);
   
     return (
         <div style={{padding: "24px", minHeight: "100vh"}}>

@@ -28,18 +28,18 @@ export const NoticiasShow = () => {
     query: { isLoading: categoryIsLoading },
   } = useOne({
     resource: "categories",
-    id: record?.category?.id || "",
+    id: record?.category || "",
     queryOptions: {
       enabled: !!record,
     },
   });
 
   const categoryIcon =
-    record?.category?.id === "cat-cartografia"
+    record?.category === "cat-cartografia"
       ? <GlobalOutlined />
-      : record?.category?.id === "cat-adm-fin"
+      : record?.category === "cat-adm-fin"
         ? <DollarOutlined />
-        : record?.category?.id === "cat-normativa"
+        : record?.category === "cat-normativa"
           ? <SafetyCertificateOutlined />
           : <FileTextOutlined />;
 

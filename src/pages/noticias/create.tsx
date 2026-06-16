@@ -36,7 +36,7 @@ export const NoticiasCreate = () => {
         </Form.Item>
         <Form.Item
           label={"Category"}
-          name={["category", "id"]}
+          name="category"
           rules={[
             {
               required: true,

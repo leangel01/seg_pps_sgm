@@ -17,6 +17,9 @@ dist-ssr
 .env
 .env.local
 
+#INSTRUCICIONES
+DEPLOY.md
+
 # Editor directories and files
 
 .vscode/_

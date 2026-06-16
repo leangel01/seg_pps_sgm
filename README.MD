@@ -35,6 +35,10 @@ Refine's hooks and components simplifies the development process and eliminates 
     npm run start
 ```
 
+### Deploying to GitHub Pages
+
+For secure deployment with Firebase credentials, see [DEPLOY.md](./DEPLOY.md).
+
 ## Learn More
 
 To learn more about **Refine**, please check out the [Documentation](https://refine.dev/docs)

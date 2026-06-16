@@ -11,7 +11,7 @@ export const NoticiasEdit = () => {
     resource: "categories",
     defaultValue: noticiasData?.category,
     queryOptions: {
-      enabled: !!noticiasData?.category,
+      enabled: !!noticiasData,
     },
   });
 
@@ -42,8 +42,8 @@ export const NoticiasEdit = () => {
         </Form.Item>
         <Form.Item
           label={"Category"}
-          name={["category", "id"]}
-          initialValue={formProps?.initialValues?.category?.id}
+          name="category"
+          initialValue={formProps?.initialValues?.category}
           rules={[
             {
               required: true,

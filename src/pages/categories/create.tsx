@@ -8,15 +8,32 @@ export const CategoryCreate = () => {
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label={"Title"}
-          name={["title"]}
+          label={"ID"}
+          name="id"
           rules={[
             {
               required: true,
+              message: "Por favor ingresa un ID único para la categoría",
+            },
+            {
+              pattern: /^[a-z0-9-]+$/,
+              message: "El ID solo puede contener minúsculas, números y guiones",
             },
           ]}
         >
-          <Input />
+          <Input placeholder="ej: cat-adm-fin" />
+        </Form.Item>
+        <Form.Item
+          label={"Title"}
+          name="title"
+          rules={[
+            {
+              required: true,
+              message: "Por favor ingresa un título",
+            },
+          ]}
+        >
+          <Input placeholder="ej: Administración y Finanzas" />
         </Form.Item>
       </Form>
     </Create>

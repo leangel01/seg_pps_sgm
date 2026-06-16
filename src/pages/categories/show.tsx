@@ -1,6 +1,6 @@
 import { Show, TextField } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
-import { Typography } from "antd";
+import { Card, Descriptions, Typography } from "antd";
 
 const { Title } = Typography;
 
@@ -10,10 +10,13 @@ export const CategoryShow = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>{"ID"}</Title>
-      <TextField value={record?.id} />
-      <Title level={5}>{"Title"}</Title>
-      <TextField value={record?.title} />
+      <Card>
+        <Title level={4}>Detalles de la Categoría</Title>
+        <Descriptions bordered column={1}>
+          <Descriptions.Item label="ID">{record?.id}</Descriptions.Item>
+          <Descriptions.Item label="Título">{record?.title}</Descriptions.Item>
+        </Descriptions>
+      </Card>
     </Show>
   );
 };

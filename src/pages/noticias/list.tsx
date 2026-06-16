@@ -40,7 +40,7 @@ export const NoticiasList = () => {
     query: { isLoading: categoryIsLoading },
   } = useMany({
     resource: "categories",
-    ids: result?.data?.map((item) => item?.category?.id).filter(Boolean) ?? [],
+    ids: result?.data?.map((item) => item?.category).filter(Boolean) ?? [],
     queryOptions: {
       enabled: !!result?.data,
     },
@@ -138,7 +138,7 @@ export const NoticiasList = () => {
               <>Cargando...</>
             ) : (
               <Tag color="magenta" icon={<FolderOpenOutlined />}>
-                {categories?.find((item) => item.id === record?.category?.id)?.title ?? "Sin categoría"}
+                {categories?.find((item) => item.id === record?.category)?.title ?? "Sin categoría"}
               </Tag>
             )
           }

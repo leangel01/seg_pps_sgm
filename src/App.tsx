@@ -1,8 +1,9 @@
-import { GitHubBanner, Refine } from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import {
+  AuthPage,
   ErrorComponent,
   ThemedLayout,
   ThemedSider,
@@ -47,7 +48,7 @@ import { Title } from "./components/Layout/Title";
 import { PieChartOutlined} from "@ant-design/icons";
 // -----------------------------
 
-import { localDataProvider } from "./providers/localDataProvider";
+import { authProvider, dataProvider } from "./providers/data";
 
 function App() {
   return (
@@ -57,7 +58,8 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={localDataProvider}
+                authProvider={authProvider}
+                dataProvider={dataProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
                 resources={[
@@ -98,6 +100,17 @@ function App() {
                 }}
               >
                 <Routes>
+                  <Route path="/login" element={<AuthPage />} />
+                  <Route path="/register" element={<AuthPage type="register" />} />
+                  <Route
+                    path="/forgot-password"
+                    element={<AuthPage type="forgotPassword" />}
+                  />
+                  <Route
+                    path="/update-password"
+                    element={<AuthPage type="updatePassword" />}
+                  />
+
                   <Route
                     element={
                       <ThemedLayout
