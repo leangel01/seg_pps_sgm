@@ -6,14 +6,13 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   browserLocalPersistence,
-  browserSessionPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
 
 import { auth } from "./firebaseClient";
 
 export const authProvider: AuthProvider = {
-  login: async ({ email, password, remember }: any) => {
+  login: async ({ email, password }: any) => {
     try {
       if (!email || !password) {
         return {
@@ -22,10 +21,7 @@ export const authProvider: AuthProvider = {
         };
       }
 
-      await setPersistence(
-        auth,
-        remember ? browserLocalPersistence : browserSessionPersistence,
-      );
+      await setPersistence(auth, browserLocalPersistence);
 
       await signInWithEmailAndPassword(auth, email, password);
 

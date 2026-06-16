@@ -16,6 +16,7 @@ import routerProvider, {
   NavigateToResource,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
+import { Authenticated } from "@refinedev/core";
 import { App as AntdApp } from "antd";
 import { HashRouter, Outlet, Route, Routes } from "react-router";
 import { Header } from "./components/header";
@@ -100,27 +101,18 @@ function App() {
                 }}
               >
                 <Routes>
-                  <Route path="/login" element={<AuthPage />} />
-                  <Route path="/register" element={<AuthPage type="register" />} />
-                  <Route
-                    path="/forgot-password"
-                    element={<AuthPage type="forgotPassword" />}
-                  />
-                  <Route
-                    path="/update-password"
-                    element={<AuthPage type="updatePassword" />}
-                  />
-
                   <Route
                     element={
-                      <ThemedLayout
-                        initialSiderCollapsed = {true}
-                        Header={() => <Header sticky />}
-                        Sider={(props) => <ThemedSider {...props} fixed />}
-                        Title = { ({ collapsed }) => <Title collapsed={collapsed} />}
-                      >
-                        <Outlet />
-                      </ThemedLayout>
+                      <Authenticated key="protected-routes" redirectOnFail="/login">
+                        <ThemedLayout
+                          initialSiderCollapsed = {true}
+                          Header={() => <Header sticky />}
+                          Sider={(props) => <ThemedSider {...props} fixed />}
+                          Title = { ({ collapsed }) => <Title collapsed={collapsed} />}
+                        >
+                          <Outlet />
+                        </ThemedLayout>
+                      </Authenticated>
                     }
                   >
                     <Route
@@ -142,6 +134,25 @@ function App() {
                       <Route path="show/:id" element={<CategoryShow />} />
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />
+                  </Route>
+
+                  <Route
+                    element={
+                      <Authenticated key="auth-pages">
+                        <NavigateToResource resource="dashboard" />
+                      </Authenticated>
+                    }
+                  >
+                    <Route path="/login" element={<AuthPage />} />
+                    <Route path="/register" element={<AuthPage type="register" />} />
+                    <Route
+                      path="/forgot-password"
+                      element={<AuthPage type="forgotPassword" />}
+                    />
+                    <Route
+                      path="/update-password"
+                      element={<AuthPage type="updatePassword" />}
+                    />
                   </Route>
                 </Routes>
 
