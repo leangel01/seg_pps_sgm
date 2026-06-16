@@ -71,11 +71,12 @@ function App() {
                   },
                   {
                     name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
+                    list: "/noticias",
+                    create: "/noticias/create",
+                    edit: "/noticias/edit/:id",
+                    show: "/noticias/show/:id",
                     meta: {
+                      label: "Noticias",
                       canDelete: true,
                     },
                   },
@@ -115,7 +116,7 @@ function App() {
                     />
                     <Route path="dashboard" element={<BoardView />} />
 
-                    <Route path="/blog-posts">
+                    <Route path="/noticias">
                       <Route index element={<BlogPostList />} />
                       <Route path="create" element={<BlogPostCreate />} />
                       <Route path="edit/:id" element={<BlogPostEdit />} />

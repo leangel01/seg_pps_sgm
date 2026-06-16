@@ -23,7 +23,7 @@ const stripMarkdown = (value?: string) =>
     .replace(/\n+/g, " ")
     .trim();
 
-export const BlogPostList = () => {
+export const NoticiasList = () => {
   const navigate = useNavigate();
   const { mode } = useContext(ColorModeContext);
   const isDark = mode === "dark";
@@ -105,12 +105,6 @@ export const BlogPostList = () => {
         </Row>
       </Card>
 
-      {/*
-        Ajustes actuales de la tabla:
-        - la columna 'Noticia' mantiene prioridad visual
-        - el resumen ocupa el espacio sobrante y usa texto plano
-        - el click en la fila abre directamente la vista 'show'
-      */}
       <Table
         dataSource={filteredData}
         rowKey="id"

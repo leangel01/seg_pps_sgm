@@ -9,7 +9,7 @@ const resources = {
 };
 
 const getResourceData = (resource: string) => {
-  return [...(resources[resource as keyof typeof resources] ?? [])] as BaseRecord[];
+  return resources[resource as keyof typeof resources] ?? [];
 };
 
 const asDataProvider = (provider: unknown) => provider as DataProvider;
