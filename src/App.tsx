@@ -136,24 +136,16 @@ function App() {
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
 
+                  <Route path="/login" element={<AuthPage />} />
+                  <Route path="/register" element={<AuthPage type="register" />} />
                   <Route
-                    element={
-                      <Authenticated key="auth-pages">
-                        <NavigateToResource resource="dashboard" />
-                      </Authenticated>
-                    }
-                  >
-                    <Route path="/login" element={<AuthPage />} />
-                    <Route path="/register" element={<AuthPage type="register" />} />
-                    <Route
-                      path="/forgot-password"
-                      element={<AuthPage type="forgotPassword" />}
-                    />
-                    <Route
-                      path="/update-password"
-                      element={<AuthPage type="updatePassword" />}
-                    />
-                  </Route>
+                    path="/forgot-password"
+                    element={<AuthPage type="forgotPassword" />}
+                  />
+                  <Route
+                    path="/update-password"
+                    element={<AuthPage type="updatePassword" />}
+                  />
                 </Routes>
 
                 <RefineKbar />
